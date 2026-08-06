@@ -37,12 +37,15 @@ def parse_crossref_payload(payload: dict) -> list[PaperRecord]:
         title = title_list[0].strip() if title_list else ""
         if not title:
             continue
+        # Clean XML tags from title if present
+        import re
+        title = re.sub(r"<[^>]+>", "", title).strip()
 
         # Extract summary / abstract
         summary = item.get("abstract", "") or ""
         # Clean JATS XML tags if present in Crossref abstract
-        import re
         summary = re.sub(r"<[^>]+>", "", summary).strip()
+
 
         # Extract authors
         authors = []

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import datetime
+from pathlib import Path
 
 import pandas as pd
 
@@ -75,3 +76,26 @@ def build_clean_dataframe(records: list[PaperRecord], run_date: datetime) -> pd.
 
     return df
 
+
+def save_clean_data(df: pd.DataFrame, csv_path: str | Path, json_path: str | Path) -> None:
+    """Save cleaned DataFrame to CSV and JSON files."""
+    import json
+    
+    csv_path = Path(csv_path)
+    json_path = Path(json_path)
+    
+    # Create directories
+    csv_path.parent.mkdir(parents=True, exist_ok=True)
+    json_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    # Save as CSV
+    df.to_csv(csv_path, index=False, encoding="utf-8")
+    
+    # Prepare JSON format - keep authors and categories as lists
+    json_data = []
+    for _, row in df.iterrows():
+        json_data.append(row.to_dict())
+    
+    # Save as JSON
+    with open(json_path, "w", encoding="utf-8") as f:
+        json.dump(json_data, f, ensure_ascii=False, indent=2)
