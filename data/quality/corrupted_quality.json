@@ -1,0 +1,38 @@
+{
+  "report_name": "corrupted_quality",
+  "generated_at": "2026-08-06T04:03:21.316810+00:00",
+  "total_rows": 24,
+  "overall_status": "FAIL",
+  "checks": [
+    {
+      "name": "row_count_min",
+      "passed": true,
+      "detail": "24 rows in dataset"
+    },
+    {
+      "name": "paper_id_not_null",
+      "passed": true,
+      "detail": "0 rows with null paper_id"
+    },
+    {
+      "name": "paper_id_unique",
+      "passed": false,
+      "detail": "2 duplicate paper_id rows"
+    },
+    {
+      "name": "title_not_null",
+      "passed": true,
+      "detail": "0 rows with missing title"
+    },
+    {
+      "name": "summary_min_length",
+      "passed": false,
+      "detail": "4 rows with summary shorter than 20 chars"
+    },
+    {
+      "name": "freshness_within_threshold",
+      "passed": false,
+      "detail": "4 rows older than 180 days"
+    }
+  ]
+}
