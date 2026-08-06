@@ -1,0 +1,33 @@
+{
+  "corruption_actions": [
+    {
+      "action": "drop_latest_records",
+      "count": 3,
+      "dropped_ids": [
+        "10_1111_exsy_70341",
+        "10_2118_234689-pa",
+        "10_1007_s10278-026-02086-9"
+      ]
+    },
+    {
+      "action": "blank_summary",
+      "paper_id": "10_21203_rs_3_rs-10178277_v1"
+    },
+    {
+      "action": "inject_noise",
+      "paper_id": "10_2196_preprints_106157"
+    },
+    {
+      "action": "truncate_title",
+      "paper_id": "10_3390_buildings16132637"
+    },
+    {
+      "action": "make_stale_date",
+      "paper_id": "10_21079_11681_50309"
+    },
+    {
+      "action": "add_duplicate_row",
+      "paper_id": "10_63646_kpqm1958"
+    }
+  ]
+}
